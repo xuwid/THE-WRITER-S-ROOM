@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Writer's Room | Project Montage</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;700;900&family=Fraunces:opsz,wght@9..144,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="texture"></div>
+    <main class="app-shell">
+      <header class="hero">
+        <p class="kicker">National University of Computer and Emerging Sciences</p>
+        <h1>The Writer's Room</h1>
+        <p>
+          Agentic AI CS-4015 Phase 1: autonomous script + character + image pipeline
+          with LangGraph workflow and MCP-style dynamic tools.
+        </p>
+      </header>
+
+      <section class="panel">
+        <h2>Input</h2>
+        <div class="grid">
+          <label>
+            Mode
+            <select id="mode">
+              <option value="autonomous">Autonomous Prompt</option>
+              <option value="manual">Manual Script</option>
+            </select>
+          </label>
+          <label>
+            Human Approval
+            <select id="approval">
+              <option value="false">Checkpoint only</option>
+              <option value="true">Auto-approve</option>
+            </select>
+          </label>
+        </div>
+
+        <label class="block">
+          Prompt (autonomous mode)
+          <textarea id="prompt" rows="4" placeholder="A tense cyberpunk negotiation in Karachi as a storm rolls in..."></textarea>
+        </label>
+
+        <label class="block">
+          Manual Script (manual mode)
+          <textarea id="manual_script" rows="8" placeholder="INT. LAB - NIGHT\nAALIYA: We are out of time.\nBilal grips the terminal and watches the lights flicker."></textarea>
+        </label>
+
+        <div class="actions">
+          <button id="runBtn">Run Pipeline</button>
+          <button id="approveBtn" disabled>Approve Last Checkpoint</button>
+          <button id="refreshBtn">Refresh Outputs</button>
+        </div>
+
+        <p id="status" class="status">Ready.</p>
+      </section>
+
+      <section class="panel output">
+        <h2>Scene Manifest</h2>
+        <pre id="sceneManifest">{}</pre>
+      </section>
+
+      <section class="panel output">
+        <h2>Character DB</h2>
+        <pre id="characterDb">[]</pre>
+      </section>
+
+      <section class="panel output">
+        <h2>Image Assets</h2>
+        <div id="images" class="images"></div>
+      </section>
+    </main>
+    <script src="/app.js"></script>
+  </body>
+</html>
